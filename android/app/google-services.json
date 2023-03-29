@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "453072235794",
+    "project_id": "agroblockchain-13e3c",
+    "storage_bucket": "agroblockchain-13e3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453072235794:android:28f6dddce2c8a496ab57cb",
+        "android_client_info": {
+          "package_name": "com.example.blockchainagro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453072235794-q3q7isecf122fc2tdhig6a9bp46gn8gi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blockchainagro",
+            "certificate_hash": "2081649400ce28c617075368b36d3d6e9df473a4"
+          }
+        },
+        {
+          "client_id": "453072235794-vdqj66928o0ert8pchnjnddku7jdt6c8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKC6SPIt1IThR8-2TZAXzP5c7xBm9lUbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453072235794-vdqj66928o0ert8pchnjnddku7jdt6c8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
