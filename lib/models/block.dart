@@ -24,11 +24,14 @@ class Block {
 
   factory Block.fromJson(Map<String, dynamic> json) {
     Transaction transaction =  Transaction(
-            json['transactions']['id'].toString(),
             json['transactions']['price'].toDouble(),
             DateTime.parse(json['transactions']['time']),
             json['transactions']['buyer'],
-            json['transactions']['seller']);
+            json['transactions']['seller'],
+            json['transactions']['productName'],
+            json['transactions']['productDescription'],
+            json['transactions']['productQuality']
+            );
 
     return Block(
       json['index'],

@@ -51,6 +51,6 @@ class Blockchain {
 
   /// used to create empty first block.
   static Block createGenesisBlock() =>
-      Block(0, DateTime.now(), local.Transaction('', 0, DateTime.now(), '', ''),
+      Block(0, DateTime.now(), local.Transaction( 0, DateTime.now(), '', '', '', '', 3),
           previousHash: '');
 }
