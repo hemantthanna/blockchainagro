@@ -97,6 +97,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
+  firebase_auth:
+    dependency: "direct main"
+    description:
+      name: firebase_auth
+      sha256: "94c229e296a5b9ee5c8cda918e0b320e3a0cc4f6a349cd410c427da347f2a244"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.3.0"
+  firebase_auth_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_auth_platform_interface
+      sha256: "1217d8aa313b49d58b489aa8879544563abc8793d9612ff20d8df193f202aedc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.12.0"
+  firebase_auth_web:
+    dependency: transitive
+    description:
+      name: firebase_auth_web
+      sha256: bf7f1a87995a58b0f07dc617806dabd7ff25c64be7fa47b41ab1bb9a485b0062
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.2.10"
   firebase_core:
     dependency: "direct main"
     description:
@@ -142,6 +166,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  flutter_spinkit:
+    dependency: "direct main"
+    description:
+      name: flutter_spinkit
+      sha256: "77a2117c0517ff909221f3160b8eb20052ab5216107581168af574ac1f05dff8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.1.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -160,6 +192,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.2.0"
+  http_parser:
+    dependency: transitive
+    description:
+      name: http_parser
+      sha256: "2aa08ce0341cc9b354a498388e30986515406668dbcc4f7c950c3e715496693b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.2"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "910f85bce16fb5c6f614e117efa303e85a1731bb0081edf3604a2ae6e9a3cc91"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.17.0"
   js:
     dependency: transitive
     description:

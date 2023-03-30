@@ -1,5 +1,6 @@
 import 'package:blockchainagro/screens/dashboard.dart';
 import 'package:blockchainagro/screens/newentry.dart';
+import 'package:blockchainagro/screens/profile.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -10,8 +11,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List screens = [const Dashboard(), const NewEntry(), const Dashboard()];
-  int currentIndex = 0;
+  List screens = [const Dashboard(), const NewEntry(), const Profile()];
+  int currentIndex = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

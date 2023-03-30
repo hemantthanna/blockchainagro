@@ -1,5 +1,6 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -11,6 +12,24 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Profile'),
+        toolbarHeight: MediaQuery.of(context).size.height / 8,
+      ),
+      body: Column(
+        children: [
+          const CircleAvatar(
+            child: Icon(Icons.person),
+          ),
+          Text(FirebaseAuth.instance.currentUser!.email.toString()),
+          ElevatedButton(
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+              },
+              child: const Text('Logout'))
+        ],
+      ),
+    );
   }
 }
