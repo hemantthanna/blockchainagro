@@ -76,7 +76,7 @@ class _TransactionFormState extends State<TransactionForm> {
         key: _formKey,
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Row(
@@ -86,11 +86,12 @@ class _TransactionFormState extends State<TransactionForm> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
+                        keyboardType: TextInputType.number,
                         decoration: const InputDecoration(
                             hintText: 'Price',
                             enabledBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: Colors.blue, width: 4),
+                                    BorderSide(color: Colors.blue, width: 2),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10)))),
                         validator: (value) {
@@ -129,10 +130,11 @@ class _TransactionFormState extends State<TransactionForm> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  keyboardType: TextInputType.name,
                   decoration: const InputDecoration(
                       hintText: 'Buyer',
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 4),
+                          borderSide: BorderSide(color: Colors.blue, width: 2),
                           borderRadius: BorderRadius.all(Radius.circular(10)))),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -146,10 +148,11 @@ class _TransactionFormState extends State<TransactionForm> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  keyboardType: TextInputType.name,
                   decoration: const InputDecoration(
                       hintText: 'Seller',
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 4),
+                          borderSide: BorderSide(color: Colors.blue, width: 2),
                           borderRadius: BorderRadius.all(Radius.circular(10)))),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -160,19 +163,22 @@ class _TransactionFormState extends State<TransactionForm> {
                   onSaved: (value) => setState(() => seller = value!),
                 ),
               ),
-              TextFormField(
-                decoration: const InputDecoration(
-                    hintText: 'product Name',
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 4),
-                        borderRadius: BorderRadius.all(Radius.circular(10)))),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a product name';
-                  }
-                  return null;
-                },
-                onSaved: (value) => setState(() => productName = value!),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                      hintText: 'product Name',
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue, width: 2),
+                          borderRadius: BorderRadius.all(Radius.circular(10)))),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a product name';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => setState(() => productName = value!),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -180,7 +186,7 @@ class _TransactionFormState extends State<TransactionForm> {
                   decoration: const InputDecoration(
                       hintText: 'product Description ',
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 4),
+                          borderSide: BorderSide(color: Colors.blue, width: 2),
                           borderRadius: BorderRadius.all(Radius.circular(10)))),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -205,6 +211,9 @@ class _TransactionFormState extends State<TransactionForm> {
                     productQuality = int.parse(value!);
                   }),
               ElevatedButton(
+                style: ButtonStyle(
+                    fixedSize: MaterialStatePropertyAll(
+                        Size(constraints.maxWidth, 40))),
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();

@@ -17,18 +17,32 @@ class _ProfileState extends State<Profile> {
         title: const Text('Profile'),
         toolbarHeight: MediaQuery.of(context).size.height / 8,
       ),
-      body: Column(
-        children: [
-          const CircleAvatar(
-            child: Icon(Icons.person),
-          ),
-          Text(FirebaseAuth.instance.currentUser!.email.toString()),
-          ElevatedButton(
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
-              },
-              child: const Text('Logout'))
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(30),
+                  child: const CircleAvatar(
+                    radius: 70,
+                    child: Icon(Icons.person),
+                  ),
+                ),
+                Text(
+                  FirebaseAuth.instance.currentUser!.email.toString(),
+                  style: const TextStyle(fontSize: 25),
+                ),
+              ],
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  FirebaseAuth.instance.signOut();
+                },
+                child: const Text('Logout'))
+          ],
+        ),
       ),
     );
   }

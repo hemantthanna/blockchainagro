@@ -1,8 +1,7 @@
-import 'package:blockchainagro/services/blockchain.dart';
-import 'package:blockchainagro/services/singleton.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:blockchainagro/screens/newentry.dart';
 import 'package:flutter/material.dart';
-import '../models/block.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -12,65 +11,62 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  final FirebaseFirestore firestore = FirebaseFirestore.instance;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dashboard'),
         toolbarHeight: MediaQuery.of(context).size.height / 8,
-        actions: const [Icon(Icons.notifications), Icon(Icons.person)],
       ),
-      body: LayoutBuilder(
-        builder: (context, constrints) => Column(
-          children: [
-            Expanded(
-              child: StreamBuilder<QuerySnapshot>(
-                stream: firestore.collection('blocks').snapshots(),
-                builder: (context, snapshot) {
-                  if (!snapshot.hasData) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                  var blocks = snapshot.data!.docs
-                      .map((doc) =>
-                          Block.fromJson(doc.data()! as Map<String, dynamic>))
-                      .toList();
-
-                  return ListView.builder(
-                    itemCount: blocks.length,
-                    itemBuilder: (context, index) {
-                      var block = blocks[index];
-                      return Card(
-                        elevation: 5,
-                        margin: const EdgeInsets.all(10),
-                        child: ListTile(
-                          contentPadding: const EdgeInsets.all(10),
-                          title: Text('Block ${block.index}'),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('price Rs. ${block.transactions.price}'),
-                              Text(
-                                  '${DateTime.parse(block.transactions.time.toString())}'),
-                            ],
-                          ),
-                          trailing: FutureBuilder(
-                            future: singleton.get<Blockchain>().isChainValid(),
-                            builder: (context, snapshot) => Icon(
-                                snapshot.data == true
-                                    ? Icons.check
-                                    : Icons.close),
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              height: 100,
+              color: Colors.red,
+              child: LayoutBuilder(
+                builder: (context, constraints) => Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                      decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20))),
+                      height: constraints.maxHeight / 1.5,
+                      child: GridView(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2),
+                            children: [],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20))),
+                      height: constraints.maxHeight / 10,
+                      child: Center(
+                          child: Text(
+                        'All Prices',
+                        style: TextStyle(fontSize: 20),
+                      )),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ],
-        ),
+          ),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const NewEntry()));
+              },
+              child: const Text('New Transaction'))
+        ],
       ),
     );
   }

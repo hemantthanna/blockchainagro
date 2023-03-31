@@ -1,6 +1,6 @@
 import 'package:blockchainagro/screens/dashboard.dart';
-import 'package:blockchainagro/screens/newentry.dart';
 import 'package:blockchainagro/screens/profile.dart';
+import 'package:blockchainagro/screens/transactions.screen.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -11,13 +11,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List screens = [const Dashboard(), const NewEntry(), const Profile()];
+  List screens = [const Transaction_Screen(), const Dashboard(), const Profile()];
   int currentIndex = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[currentIndex],
-    
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
           onTap: (value) {
